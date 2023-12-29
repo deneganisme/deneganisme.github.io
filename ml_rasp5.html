@@ -1,0 +1,34 @@
+<title>ML on Raspberry 5</title>
+
+<h1>Lay of the Land</h1>
+Thrusted out of the familiar and into the strange or: what to do when you can't use CUDA.
+
+I just got the Raspberry Pi 5 (RP5) and being an ML engineer my first thought is seeing what I can cram onto here.
+
+The RP5 has a GPU onboard (TODO: GPU; videocore something...?) so naturally I want to tap into it for ML purposes.
+
+However, as previously said this ain't no Nvidia sota GPU we're going to have to explore alternatives
+
+<h2>OpenGL? No, wait, Open<i>CL</i></h2>
+Initially, I admit I was confused by this one word difference but this is how it goes:
+<ul>
+    Both use the GPU
+</ul>
+<ul>
+    The "G" OpenGL is for <i>graphics</i> and so it's primarily used for video games, rendering, etc. Not as general as...
+</ul>
+<ul>
+    OpenCL where the "C" stands for "compute" but... don't quote me on that. Anyways, this is more general but <i>guess what!</i> 
+    It's not really for the RP5. It seems at some point someone did a master theses on this (TODO:cite) but that was long ago and for the RP3... 
+</ul>
+
+<h2>Onto Vulkan</h2>
+So Vulkan <i>is</i> accessible on my RP5 and can even be used by Pytorch (if you're willing to jump through some hoops...)
+
+My eyes are set on setting up Vulkan which was made easy thanks to <a href="https://qengineering.eu/install-vulkan-on-raspberry-pi.html">this tutorial</a>
+<i>P.S. they say PiKISS isn't available for 64-bit but that was at the time of writing and is now available making Vulkan installation easy peezy</i>
+
+<h1>Log</h1>
+
+<h3>12/</h3>
+Ok...but it seems that we can only use Vulkan 1.2...? And the latest is now 1.3+? Drats.
